@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,121 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ObjectDetector" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="du4-a0-Mvs">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="536"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ifr-ST-VR0">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="501"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="huJ-Uo-fYZ">
+                                        <rect key="frame" x="149.33333333333334" y="506" width="115.66666666666666" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="a32-ZU-Mt9"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Menlo-BoldItalic" family="Menlo" pointSize="16"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ifr-ST-VR0" firstAttribute="top" secondItem="du4-a0-Mvs" secondAttribute="top" id="JoK-ih-ECE"/>
+                                    <constraint firstItem="ifr-ST-VR0" firstAttribute="leading" secondItem="du4-a0-Mvs" secondAttribute="leading" id="M4e-z5-7it"/>
+                                    <constraint firstItem="huJ-Uo-fYZ" firstAttribute="top" secondItem="ifr-ST-VR0" secondAttribute="bottom" constant="5" id="PpD-De-kTR"/>
+                                    <constraint firstAttribute="trailing" secondItem="ifr-ST-VR0" secondAttribute="trailing" id="UAH-u4-kBK"/>
+                                    <constraint firstItem="huJ-Uo-fYZ" firstAttribute="centerX" secondItem="du4-a0-Mvs" secondAttribute="centerX" id="VeV-8G-CmO"/>
+                                    <constraint firstAttribute="bottom" secondItem="ifr-ST-VR0" secondAttribute="bottom" id="vQ5-3D-Qc0"/>
+                                    <constraint firstAttribute="bottom" secondItem="huJ-Uo-fYZ" secondAttribute="bottom" constant="5" id="wAv-Vh-niE"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="vQ5-3D-Qc0"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="oJ6-J0-kgR">
+                                <rect key="frame" x="0.0" y="536" width="414" height="200"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IHx-yO-Af5">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mey-y7-5Ug">
+                                                <rect key="frame" x="57" y="27.666666666666629" width="300" height="45"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="45" id="KiR-12-w7w"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="zD3-wz-43s"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="17"/>
+                                                <state key="normal" title="Find Image">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="findImageButtonDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H9L-kS-edG"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="mey-y7-5Ug" firstAttribute="top" secondItem="IHx-yO-Af5" secondAttribute="top" constant="27.5" id="5y2-qa-yYB"/>
+                                            <constraint firstItem="mey-y7-5Ug" firstAttribute="centerX" secondItem="IHx-yO-Af5" secondAttribute="centerX" id="Jlh-Mi-phD"/>
+                                            <constraint firstItem="mey-y7-5Ug" firstAttribute="centerY" secondItem="IHx-yO-Af5" secondAttribute="centerY" id="f9j-G2-whq"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RGn-fi-yto">
+                                        <rect key="frame" x="0.0" y="100" width="414" height="100"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kLl-Xt-O8f">
+                                                <rect key="frame" x="57" y="27.666666666666629" width="300" height="45"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="45" id="1qT-YO-thN"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="2I2-P1-o86"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="17"/>
+                                                <state key="normal" title="Take Photo">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="takePhotoDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e5l-Zs-PyY"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="kLl-Xt-O8f" firstAttribute="centerY" secondItem="RGn-fi-yto" secondAttribute="centerY" id="C3o-Hj-TRv"/>
+                                            <constraint firstItem="kLl-Xt-O8f" firstAttribute="centerX" secondItem="RGn-fi-yto" secondAttribute="centerX" id="JT0-kN-mpn"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oJ6-J0-kgR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6lH-Lk-lV2"/>
+                            <constraint firstItem="du4-a0-Mvs" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="BrR-aT-0hT"/>
+                            <constraint firstItem="du4-a0-Mvs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Dgh-Mk-cAJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oJ6-J0-kgR" secondAttribute="trailing" id="O4Z-0c-WjB"/>
+                            <constraint firstItem="du4-a0-Mvs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aZU-PK-H0u"/>
+                            <constraint firstItem="oJ6-J0-kgR" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="hMt-tT-oHg"/>
+                            <constraint firstItem="du4-a0-Mvs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jkI-Hv-Tz9"/>
+                            <constraint firstItem="oJ6-J0-kgR" firstAttribute="top" secondItem="du4-a0-Mvs" secondAttribute="bottom" id="xmU-IC-Ztd"/>
+                            <constraint firstItem="oJ6-J0-kgR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="z00-aC-PtB"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="findImageButton" destination="mey-y7-5Ug" id="cY6-l8-grA"/>
+                        <outlet property="objectImageView" destination="ifr-ST-VR0" id="ev5-VD-GSY"/>
+                        <outlet property="resultLablel" destination="huJ-Uo-fYZ" id="0EV-Cj-lRV"/>
+                        <outlet property="takePhotoButton" destination="kLl-Xt-O8f" id="BmU-Xz-ss4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="138.58695652173915"/>
         </scene>
     </scenes>
 </document>
